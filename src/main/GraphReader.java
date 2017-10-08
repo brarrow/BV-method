@@ -2,9 +2,7 @@ package main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
-
 
 /**
  * Created by lelay on 08.10.17.
@@ -13,7 +11,7 @@ public class GraphReader {
 
     private String path;
 
-    GraphReader(String[] args){
+    public GraphReader(String[] args){
         /*command line arguments:
         1) the first is the path to a file
         */
