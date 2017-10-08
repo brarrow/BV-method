@@ -43,7 +43,7 @@ public class GraphReader {
             weightMatrix[i][j] = scan.nextInt();
 
             if (isBiDirectional){
-                weightMatrix[j][i] = weightMatrix[j][i];
+                weightMatrix[j][i] = weightMatrix[i][j];
             }
         }
 
