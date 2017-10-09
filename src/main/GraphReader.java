@@ -40,7 +40,7 @@ public class GraphReader {
         while(scan.hasNext()){
             i = scan.nextInt();
             j = scan.nextInt();
-            weightMatrix[i][j] = scan.nextInt();
+            weightMatrix[i][j] = scan.nextDouble();
 
             if (isBiDirectional){
                 weightMatrix[j][i] = weightMatrix[i][j];
