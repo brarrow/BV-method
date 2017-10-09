@@ -27,13 +27,13 @@ public class GraphReader {
     }
 
     //isBiDirectional parameter means if it's a bi-directional graph or not
-    public int[][] readFile(boolean isBiDirectional) throws FileNotFoundException {
+    public double[][] readFile(boolean isBiDirectional) throws FileNotFoundException {
         // the first number in the file is a number of city in graph, so then we can create a matrix with NxN cages
         // in the text file you have an vertices written like "1 2 150" as "(i, j, weight)"
         Scanner scan = new Scanner(new File(this.path));
 
         int cityNumber = scan.nextInt();
-        int[][] weightMatrix = new int[cityNumber][cityNumber];
+        double[][] weightMatrix = new double[cityNumber][cityNumber];
 
         int i = 0;
         int j = 0;
@@ -52,7 +52,7 @@ public class GraphReader {
     }
 
     //default method (one-directional graph)
-    public int[][] readFile() throws FileNotFoundException {
+    public double[][] readFile() throws FileNotFoundException {
         return readFile(false);
     }
 }
