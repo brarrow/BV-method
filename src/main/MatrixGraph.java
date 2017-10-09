@@ -21,10 +21,14 @@ public class MatrixGraph {
         double[][] matrGr = new double[cityNumber][cityNumber];
 
         Random rand = new Random();
-
+	
+	//is bi-directional for default
         for(int i = 0; i < cityNumber; ++i) {
-            matrGr[i][(i + 1) % cityNumber] = rand.nextDouble() * delta;
-            // rand.nextDouble get us the value in borders [0, 1]
+            for(int j = i+1; j < cityNumber; ++j) {
+                matrGr[i][j] = rand.nextDouble() * delta;
+                // rand.nextDouble get us the value in borders [0, 1]
+                matrGr[j][i] = matrGr[i][j];
+            }
         }
 
         return matrGr;
