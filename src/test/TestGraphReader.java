@@ -14,9 +14,9 @@ public class TestGraphReader {
                 "/home/lelay/Programming/git_projects/BV-method/src/test/test_graph_1.txt"
         });
 
-        int[][] matrix = gr.readFile(true);
+        double[][] matrix = gr.readFile(true);
 
-        int[][] myMatrix = new int[3][3];
+        double[][] myMatrix = new double[3][3];
         myMatrix[0][1] = 100;
         myMatrix[1][2] = 322;
         myMatrix[2][0] = 228;
