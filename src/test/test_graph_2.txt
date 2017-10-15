@@ -1,0 +1,4 @@
+3
+inf 2 4
+inf inf 8
+322 228 inf
