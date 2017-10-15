@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * Created by lelay on 09.10.17.
  */
-public class MatrixGraph {
+public class MatrixGraph implements SpecialValues {
 
     private double[][] matrixGraph;
 

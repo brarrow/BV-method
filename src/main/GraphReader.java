@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * Created by lelay on 08.10.17.
  */
-public class GraphReader {
+public class GraphReader implements SpecialValues {
 
     private String path;
 
@@ -51,6 +51,33 @@ public class GraphReader {
         return weightMatrix; //returns the weightMatrix
     }
 
+    public double[][] readFileLineByLine() throws FileNotFoundException {
+        Scanner scan = new Scanner(new File(this.path));
+
+        int cityNumber = scan.nextInt();
+        double[][] weightMatrix = new double[cityNumber][cityNumber];
+
+        for(int i = 0; i < cityNumber; ++i){
+            for(int j = 0; j < cityNumber; ++j){
+                if(scan.hasNextDouble()){
+                    weightMatrix[i][j] = scan.nextDouble();
+                }
+                else if(scan.hasNextLine()){
+                    String temp = scan.next();
+                    if(temp.equals("inf") || temp.equals("INF") || temp.equals("Inf")){
+                        weightMatrix[i][j] = INF;
+                    }
+                    else{
+                        System.out.println("\nUndefined value at the [" + i + ", " +
+                                j + "] position at the graph matrix file: " + this.path);
+                    }
+                }
+            }
+        }
+
+        scan.close();
+        return weightMatrix;
+    }
     //default method (one-directional graph)
     public double[][] readFile() throws FileNotFoundException {
         return readFile(false);
