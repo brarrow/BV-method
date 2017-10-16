@@ -11,9 +11,9 @@ import java.util.Arrays;
  */
 public class TestGraphReader implements SpecialValues {
     public boolean test() throws FileNotFoundException {
-        GraphReader gr = new GraphReader(new String[]{ //so f**king bad realisation only for mine local machine, but ...
+        GraphReader gr = new GraphReader( //so f**king bad realisation only for mine local machine, but ...
                 "/home/lelay/Programming/git_projects/BV-method/src/test/test_graph_1.txt"
-        });
+        );
 
         double[][] matrix = gr.readFile(true);
 
@@ -29,9 +29,9 @@ public class TestGraphReader implements SpecialValues {
     }
 
     public boolean test2() throws FileNotFoundException {
-        GraphReader gr = new GraphReader(new String[]{
+        GraphReader gr = new GraphReader(
                 "/home/lelay/Programming/git_projects/BV-method/src/test/test_graph_2.txt"
-        });
+        );
 
         double[][] matrix = gr.readFileLineByLine();
 
