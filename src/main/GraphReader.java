@@ -11,11 +11,8 @@ public class GraphReader implements SpecialValues {
 
     private String path;
 
-    public GraphReader(String[] args){
-        /*command line arguments:
-        1) the first is the path to a file
-        */
-        this.path = args[0];
+    public GraphReader(String path){
+        this.path = path;
     }
 
     public String getPath(){
@@ -57,8 +54,8 @@ public class GraphReader implements SpecialValues {
         int cityNumber = scan.nextInt();
         double[][] weightMatrix = new double[cityNumber][cityNumber];
 
-        for(int i = 0; i < cityNumber; ++i){
-            for(int j = 0; j < cityNumber; ++j){
+        for(int i = 0; i < cityNumber; i++){
+            for(int j = 0; j < cityNumber; j++){
                 if(scan.hasNextDouble()){
                     weightMatrix[i][j] = scan.nextDouble();
                 }
