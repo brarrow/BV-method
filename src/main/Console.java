@@ -1,5 +1,6 @@
 package main;
 
+import main.Algorithms.BVMethod;
 import main.Algorithms.Greedy;
 
 import java.io.FileNotFoundException;
@@ -11,7 +12,7 @@ public class Console {
 
         Scanner input = new Scanner(System.in);
         String line[];
-        int path[] = new int[0];
+        Path path = new Path();
         MatrixGraph graph = new MatrixGraph();
         do {
             line = input.nextLine().split(" ");
@@ -51,22 +52,16 @@ public class Console {
                 }
 
                 case "\\sp": {
-                    for (int arg : path) {
-                        System.out.print(arg + 1 + " ");
+                    for (int arg : path.GetCities()) {
+                        System.out.print((arg + 1) + " ");
                     }
-                    double sum = 0;
-                    for (int i = 0; i < path.length - 1; i++) {
-                        sum += graph.getWeight(path[i], path[i + 1]);
-                    }
-                    sum += graph.getWeight(path[path.length - 1], path[0]);
-                    System.out.println("; Sum is: " + sum);
+
+                    System.out.println("; Sum is: " + path.GetPathWeight());
                     break;
                 }
 
                 case "\\f": {
-                    if (line.length == 2) {
-                        path = Greedy.FindLoopPathFrom(graph, Integer.parseInt(line[1]) - 1);
-                    } else path = Greedy.FindLoopPath(graph);
+                    path = BVMethod.FindPath(graph);
                     System.out.println("Success!");
                     break;
                 }

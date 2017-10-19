@@ -2,9 +2,10 @@ package main.Algorithms;
 
 import main.MatrixGraph;
 import main.SpecialValues;
+import main.Path;
 
 public class Greedy {
-    public static int[] FindLoopPath(MatrixGraph graph) {
+    public static Path FindLoopPath(MatrixGraph graph) {
 
         double min_val = SpecialValues.INF;
         int n = graph.getCityNumber();
@@ -21,13 +22,12 @@ public class Greedy {
         return FindLoopPathFrom(graph, city_now);
     }
 
-    public static int[] FindLoopPathFrom(MatrixGraph graph, int cityfirst) {
+    public static Path FindLoopPathFrom(MatrixGraph graph, int cityfirst) {
 
         double min_val = graph.INF;
         int citynow = cityfirst;
         int city_suggest;
         int n = graph.getCityNumber();
-
         int path[] = new int[n];
         boolean visited[] = new boolean[n];
 
@@ -45,6 +45,6 @@ public class Greedy {
             }
             citynow = city_suggest;
         }
-        return path;
+        return new Path(graph, path);
     }
 }

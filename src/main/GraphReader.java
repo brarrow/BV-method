@@ -11,15 +11,15 @@ public class GraphReader implements SpecialValues {
 
     private String path;
 
-    public GraphReader(String path){
+    public GraphReader(String path) {
         this.path = path;
     }
 
-    public String getPath(){
+    public String getPath() {
         return this.path;
     }
 
-    public void setPath(String path){
+    public void setPath(String path) {
         this.path = path;
     }
 
@@ -34,12 +34,12 @@ public class GraphReader implements SpecialValues {
 
         int i = 0;
         int j = 0;
-        while(scan.hasNext()){
+        while (scan.hasNext()) {
             i = scan.nextInt();
             j = scan.nextInt();
             weightMatrix[i][j] = scan.nextDouble();
 
-            if (isBiDirectional){
+            if (isBiDirectional) {
                 weightMatrix[j][i] = weightMatrix[i][j];
             }
         }
@@ -54,17 +54,15 @@ public class GraphReader implements SpecialValues {
         int cityNumber = scan.nextInt();
         double[][] weightMatrix = new double[cityNumber][cityNumber];
 
-        for(int i = 0; i < cityNumber; i++){
-            for(int j = 0; j < cityNumber; j++){
-                if(scan.hasNextDouble()){
+        for (int i = 0; i < cityNumber; i++) {
+            for (int j = 0; j < cityNumber; j++) {
+                if (scan.hasNextDouble()) {
                     weightMatrix[i][j] = scan.nextDouble();
-                }
-                else if(scan.hasNextLine()){
+                } else if (scan.hasNextLine()) {
                     String temp = scan.next();
-                    if(temp.equals("inf") || temp.equals("INF") || temp.equals("Inf")){
+                    if (temp.equals("inf") || temp.equals("INF") || temp.equals("Inf")) {
                         weightMatrix[i][j] = INF;
-                    }
-                    else{
+                    } else {
                         System.out.println("\nUndefined value at the [" + i + ", " +
                                 j + "] position at the graph matrix file: " + this.path);
                     }
@@ -75,6 +73,7 @@ public class GraphReader implements SpecialValues {
         scan.close();
         return weightMatrix;
     }
+
     //default method (one-directional graph)
     public double[][] readFile() throws FileNotFoundException {
         return readFile(false);
