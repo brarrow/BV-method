@@ -27,6 +27,20 @@ public class Path {
         return cities;
     }
 
+    public void copyPath(Path copiedPath){
+        this.cities = copiedPath.GetCities();
+        this.pathweight = copiedPath.GetPathWeight();
+        this.length = copiedPath.GetLength();
+    }
+
+    public void setCity(int position, int city){
+        cities[position] = city;
+    }
+
+    public int getCity(int position){
+        return cities[position];
+    }
+    //rly bad name for the method (isn't getter, better "calculate...")
     private double GetPathWeight(MatrixGraph graph, int[] path) {
         double sum = 0;
         for (int i = 0; i < path.length - 1; i++) {
