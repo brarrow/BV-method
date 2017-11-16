@@ -1,5 +1,7 @@
 package main.Algorithms;
 
+import com.sun.org.apache.bcel.internal.classfile.ConstantDouble;
+import main.Console;
 import main.MatrixGraph;
 import main.Path;
 
@@ -37,6 +39,26 @@ public class BVMethod {
             }
             System.out.println();
         }
+
+        boolean havebetterpath = false;
+        do {
+            havebetterpath = false;
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (bvmatrix[i][j] != 0) {
+                        now = Modifiers.ApplyAllAndChooseBest(graph, best, i, j);
+                        if (now.GetPathWeight() < best.GetPathWeight()) {
+                            System.out.println("Was: " + best.GetPathWeight() + "Now: " + now.GetPathWeight());
+                            best = now;
+                            bvmatrix[i][j] = 0;
+                            havebetterpath = true;
+                        }
+                    }
+                }
+            }
+        } while (havebetterpath);
+
+
         return best;
     }
 }

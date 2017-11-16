@@ -2,8 +2,8 @@ package main;
 
 public class Path {
     private int[] cities;
-    private int length;
-    private double pathweight;
+    public int length;
+    public double pathweight;
 
     public Path(MatrixGraph graph, int[] cities) {
         this.cities = cities;
@@ -27,19 +27,20 @@ public class Path {
         return cities;
     }
 
-    public void copyPath(Path copiedPath){
+    public void copyPath(Path copiedPath) {
         this.cities = copiedPath.GetCities();
         this.pathweight = copiedPath.GetPathWeight();
         this.length = copiedPath.GetLength();
     }
 
-    public void setCity(int position, int city){
+    public void setCity(int position, int city) {
         cities[position] = city;
     }
 
-    public int getCity(int position){
+    public int getCity(int position) {
         return cities[position];
     }
+
     //rly bad name for the method (isn't getter, better "calculate...")
     private double GetPathWeight(MatrixGraph graph, int[] path) {
         double sum = 0;

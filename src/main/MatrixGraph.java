@@ -41,10 +41,19 @@ public class MatrixGraph implements SpecialValues {
         Random rand = new Random();
 
         //is bi-directional for default
+        //for (int i = 0; i < cityNumber; i++) {
+        //  for (int j = i + 1; j < cityNumber; j++) {
+        //    matrixGraph[i][j] = new BigDecimal(rand.nextDouble() * delta).setScale(3, RoundingMode.UP).doubleValue();
+        //  if(rand.nextDouble() > 0.8)
+        //matrixGraph[j][i] = matrixGraph[i][j];
+
+        //}
+        //matrixGraph[i][i] = INF;
+        //}
         for (int i = 0; i < cityNumber; i++) {
-            for (int j = i + 1; j < cityNumber; j++) {
+            for (int j = 0; j < cityNumber; j++) {
                 matrixGraph[i][j] = new BigDecimal(rand.nextDouble() * delta).setScale(3, RoundingMode.UP).doubleValue();
-                matrixGraph[j][i] = matrixGraph[i][j];
+                if (rand.nextDouble() > 0.8) matrixGraph[i][j] = INF;
             }
             matrixGraph[i][i] = INF;
         }
@@ -52,7 +61,7 @@ public class MatrixGraph implements SpecialValues {
 
     //defaut value of the delta param is 100
     public void generateGraph() {
-        this.generateGraph(100);
+        this.generateGraph(1000);
     }
 
     public void showMatrixGraph() {

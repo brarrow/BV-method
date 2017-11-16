@@ -43,7 +43,7 @@ public class Greedy {
                     city_suggest = j;
                 }
             }
-            citynow = city_suggest;
+            if (city_suggest != -1) citynow = city_suggest;
         }
         return new Path(graph, path);
     }
