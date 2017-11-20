@@ -60,6 +60,22 @@ public class Console {
                     break;
                 }
 
+                case "\\stat": {
+                    switch (line.length) {
+                        case 3: {
+                            int iter = Integer.parseInt(line[2]);
+                            int n = Integer.parseInt(line[1]);
+                            BVMethod.GetStat(iter, n);
+                            break;
+                        }
+                        default: {
+                            BVMethod.GetStat();
+                            break;
+                        }
+                    }
+                    break;
+                }
+
                 case "\\f": {
                     path = BVMethod.FindPath(graph);
                     System.out.println("Success!");
@@ -79,8 +95,9 @@ public class Console {
                         "\\l [path_to_file] \t-- Load graph from file\n" +
                         "\\sw \t-- Show graph in console\n" +
                         "\\sp \t-- Show finded path" +
-                        "\\f -[first_city] \t-- Find optimal path\n" +
-                        "\\g -[city_number] -[delta]\t-- Generate graph\n"
+                        "\\f [first_city] \t-- Find optimal path\n" +
+                        "\\g [city_number] [delta]\t-- Generate graph\n" +
+                        "\\stat [city_number] [iterations]\t-- Get statistic"
         );
     }
 }
