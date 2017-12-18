@@ -77,7 +77,7 @@ public class Console {
                 }
 
                 case "\\f": {
-                    path = BVMethod.FindPath(graph);
+                    path = BVMethod.FindPath(graph, false);
                     System.out.println("Success!");
                     break;
                 }

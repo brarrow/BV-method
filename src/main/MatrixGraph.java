@@ -59,9 +59,8 @@ public class MatrixGraph implements SpecialValues {
         }
     }
 
-    //defaut value of the delta param is 100
     public void generateGraph() {
-        this.generateGraph(1000);
+        this.generateGraph(2000);
     }
 
     public void showMatrixGraph() {
